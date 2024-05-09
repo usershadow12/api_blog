@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\AvaliacaoController;
+use App\Http\Controllers\InscritoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +18,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('post', PostController::class);
