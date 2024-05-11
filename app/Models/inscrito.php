@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class inscrito extends Model
 {
     use HasFactory;
+    protected $fillable = ['nome', 'email'];
 }

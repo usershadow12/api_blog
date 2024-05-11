@@ -10,9 +10,10 @@ class InscritoController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(inscrito $insc)
     {
-        //
+        $inscritos = $insc->all();
+        return view('inscrito', compact('inscritos'));
     }
 
     /**
@@ -20,7 +21,7 @@ class InscritoController extends Controller
      */
     public function create()
     {
-        //
+        return view('forms/inscrito');
     }
 
     /**
@@ -28,7 +29,9 @@ class InscritoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       $data = $request->all();
+       $inscrito = inscrito::create($data);
+       return redirect()->route('inscrito.index');
     }
 
     /**

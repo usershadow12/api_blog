@@ -9,4 +9,5 @@ class avaliacao extends Model
 {
     use HasFactory;
     protected $table='Avaliacoes';
+    protected $fillable = ['id_insc', 'id_post', 'classificacao', 'comentario'];
 }

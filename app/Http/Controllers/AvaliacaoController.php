@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\avaliacao;
+use App\Models\inscrito;
 use Illuminate\Http\Request;
 
 class AvaliacaoController extends Controller
@@ -20,7 +21,6 @@ class AvaliacaoController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
@@ -28,7 +28,13 @@ class AvaliacaoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if(!$inscrito = inscrito::where('email', $request['email'])->first()){
+            return redirect()->route('post.index');
+        }
+         $data = $request->all();
+         $data['id_insc'] = $inscrito['id_insc'];
+         $aval = avaliacao::create($data);
+         return redirect()->route('post.index');
     }
 
     /**
